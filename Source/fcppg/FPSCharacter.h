@@ -15,9 +15,16 @@ public:
 	// Sets default values for this character's properties
 	AFPSCharacter();
 
+	UPROPERTY(EditAnywhere, Category = "Weapon")//makes var editable in blueprints, by ingame actions, etc. will be fould under weapon category in blueprints.
+		float weaponRange{ 1000 };
+
+	UFUNCTION(BlueprintCallable , Category = "Weapon")
+		void fireWeapon();
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	FHitResult instantShot();
 
 public:	
 	// Called every frame
